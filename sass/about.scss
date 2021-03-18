@@ -1,0 +1,452 @@
+@import "style.scss";
+// Задачи
+// доделать about с адаптивом
+// ======================================================= 
+
+// Шрифты
+// font-family: 'Montserrat', sans-serif;
+// font-family: 'Open Sans', sans-serif;
+
+// Переменные
+$ff-OpenS: 'Open Sans', sans-serif;
+$color-green: #7beec7;
+$color-grey: #60606e;
+
+// Общие стили
+.subtitle._about{
+   font-family: $ff-OpenS;
+   font-size: 14px;
+   font-weight: 800;
+   text-transform: uppercase;
+   margin: 15px 0;
+}
+
+// INTRO
+.intro{
+   &._about{
+      background: url('../img/About/bg.jpg') no-repeat;
+      background-size: cover;
+      height: 500px;
+   }
+   &__info._about{
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+   }
+   &__title._about{
+      font-size: 36px;
+      padding: 0;
+      border: 0;
+   }
+   &__subtitle._about{
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: 700;
+   }
+}
+// ABOUT
+.about{
+   margin: 150px 0 0;
+   &__inner{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+   }
+   &__info,
+   &__objective{
+      max-width: 540px;
+   }
+   &__text{
+      font-size: 14px;
+      font-family: $ff-OpenS;
+      color: #999;
+      line-height: 2;
+   }
+}
+// BENEFITS
+.benefits{
+   margin: 150px 0 0;
+   &__inner{
+      .info{
+         max-width: 729px;
+         text-align: center;
+         margin: 0 auto;
+      }
+   }
+   .grid-container{
+      margin: 120px 0 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-column-gap: 50px;
+      grid-row-gap: 50px;
+   }
+   .item__title{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 0 0 15px;
+      & i{
+         display: inline-block;
+         font-size: 30px;
+         width: 50px;
+         height: 50px;
+         margin: 0 20px 0 0;
+         text-align: center;
+         line-height: 50px;
+         color: #fff;
+         background-color: $color-green;
+      }
+      .grid__title{
+         font-size: 18px;
+         font-weight: 700;
+         text-transform: uppercase;
+      }
+   }
+   .item__text{
+      font-family: $ff-OpenS;
+      color: #999;
+      line-height: 2;
+   }
+}
+// TEAM
+.team{
+   margin: 150px 0 0;
+   .grid-container{
+      margin: 120px 0 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+      justify-content: center;
+      .grid-item{
+         position: relative;
+         img{
+            max-width: 100%;
+            width: 100%;
+         }
+         .item-hover{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .2s ease-in-out 0s;
+            .item__title{
+               font-size: 12px;
+               font-weight: 700;
+               color: $color-grey;
+               text-transform: uppercase;
+            }
+            .item__subtitle{
+               @extend .item__title;
+               display: inline-block;
+               margin: 10px 0 0;
+               color: #fff;
+               background-color: $color-green;
+               padding: 5px;
+            }
+         }
+         &:hover .item-hover{
+            opacity: 1;
+            visibility: visible;
+         }
+      }
+   }
+   .read{
+      margin: 30px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px 30px;
+      background-color: #efeff0;
+      &__text{
+         font-family: $ff-OpenS;
+         font-size: 18px;
+         font-style: italic;
+      }
+   }
+}
+// WORKS
+.works{
+   margin: 150px 0 0;
+   .slider{
+      &__item{
+         display: flex;
+         align-items: flex-start;
+         justify-content: space-between;
+      }
+      .worker{
+         max-width: 550px;
+         text-align: center;
+         img{
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+            border-radius: 50%;
+            margin: 0 0 30px;
+         }
+         &__text{
+            font-family: $ff-OpenS;
+            font-size: 14px;
+            color: #999;
+            line-height: 2;
+            margin: 0 0 15px;
+         }
+         &__name{
+            display: inline-block;
+            width: auto;
+            height: 30px;
+            padding: 5px 10px;
+            text-align: center;
+            color: #fff;
+            background-color: #7beec7;
+         }
+      }
+      .design{
+         display: grid;
+         grid-template-columns: 1fr 1fr 1fr;
+         grid-auto-rows: 1fr;
+         grid-column-gap: 30px;
+         grid-row-gap: 30px;
+         &-item{
+            width: 160px;
+            height: 100px;
+            border: 1px solid rgba(153, 153, 153, 0.3);
+            padding: 20px;
+            img{
+               max-width: 100%;
+               width: 100%;
+               height: 100%;
+            }
+         }
+      }
+   }
+}
+
+
+
+@media screen and (max-width: 1200px){
+   .about{
+      &__info,
+      &__objective{
+         max-width: 440px;
+      }
+   }
+   .works{
+      .slider{
+         .worker{
+            max-width: 450px;
+         }
+         .design{
+            &-item{
+               width: 130px;
+               height: 90px;
+            }
+         }
+      }
+   }
+}
+
+@media screen and (max-width: 991px){
+   .about{
+      &__inner{
+         flex-direction: column;
+      }
+      &__info,
+      &__objective{
+         max-width: 100%;
+      }
+   }
+   // BENEFITS
+   .benefits{
+      &__inner{
+         .info{
+            max-width: 370px;
+         }
+      }
+      .grid-container{
+         grid-template-columns: 1fr 1fr;
+         grid-template-rows: 1fr 1fr 1fr;
+      }
+   }
+   // TEAM
+   .team{
+      .grid-container{
+         grid-template-columns: repeat(auto-fill, 345px);
+         grid-template-rows: 1fr 1fr 1fr 1fr;
+      }
+      .read{
+         display: block;
+         &__btn{
+            margin: 15px 0 0;
+            display: flex;
+            justify-content: flex-end;
+         }
+      }
+   }
+   // WORKS
+   .works{
+      .slider{
+         &__item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+         }
+         .worker{
+            max-width: 100%;
+            margin: 0 0 50px;
+         }
+         .design{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: 1fr;
+            grid-column-gap: 30px;
+            grid-row-gap: 30px;
+            &-item{
+               width: 100%;
+               height: 150px;
+            }
+         }
+      }
+   }
+}
+
+
+@media screen and (max-width: 768px){
+   // BENEFITS
+   .benefits{
+   .grid-container{
+         grid-template-columns: 1fr;
+         grid-template-rows: 1fr 1fr 1fr 1fr;
+         grid-column-gap: 0;
+      }
+   }
+   // TEAM
+   .team{
+      .grid-container{
+         grid-template-columns: repeat(auto-fill, 100%);
+         grid-template-rows: repeat(8, 1fr);
+      }
+   }  
+   // WORKS
+   .works{
+      .slider{
+         .design{
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-auto-rows: 1fr;
+            grid-column-gap: 30px;
+            grid-row-gap: 30px;
+            &-item{
+               width: 100%;
+               height: 150px;
+            }
+         }
+      }
+   }
+}
+
+
+
+@media screen and (max-width: 450px){
+   .intro{
+      &__title._about{
+         font-size: 40px;
+      }
+   }
+   .about{
+      &__objective{
+        margin: 30px 0 0;
+      }
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
